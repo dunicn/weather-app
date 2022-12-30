@@ -1,5 +1,7 @@
 # Weather app
 
+https://weather-app-dunicn.vercel.app/
+
 This is a simple weather app created as a part of code test. Default temperature information is for Oslo, with search option for cities. I've used react query, chart.js, 
 react-chartjs-2 and styled components for this app. 
 
