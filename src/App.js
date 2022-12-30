@@ -15,12 +15,9 @@ import { useState } from 'react';
 
 const queryClient = new QueryClient()
 
-const StyledSection = styled.section`
-  display: flex;
-  height: 400px;
-  flex-direction: column;
-  justify-content:center; 
-	align-items:center;
+const StyledSection = styled.div`
+  width: 50%;
+
 `
 
 const StyledHeader = styled.h1`
@@ -32,12 +29,13 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content:center; 
 	align-items:center;
+  height: 100vh;
 `
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 50%;
   align-items: center;
   padding: 10px;
   margin-top: 50px;
@@ -128,14 +126,15 @@ function App() {
           <input name="city" type="text" placeholder='City' />
           <StyledButton type="submit">Go</StyledButton>
         </StyledForm>
+        <StyledSection>
+          {
+            data.forecast
+              ? <Line options={options} data={lineData} />
+              : <h2>No city found, please try again</h2>
+          }
+        </StyledSection>
       </StyledDiv>
-      <StyledSection>
-        {
-          data.forecast
-            ? <Line options={options} data={lineData} />
-            : <h2>No city found, please try again</h2>
-        }
-      </StyledSection>
+
     </QueryClientProvider>
   );
 }
